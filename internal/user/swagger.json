@@ -1,0 +1,3927 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Redwood User API",
+      "version": "v1"
+    },
+    "paths": {
+      "/api/applications": {
+        "get": {
+          "tags": [
+            "Application"
+          ],
+          "operationId": "GetApplications",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwApplication"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwApplication"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwApplication"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/application/{query}": {
+        "get": {
+          "tags": [
+            "Application"
+          ],
+          "operationId": "GetApplication",
+          "parameters": [
+            {
+              "name": "query",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwApplication"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwApplication"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwApplication"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/application": {
+        "post": {
+          "tags": [
+            "Application"
+          ],
+          "operationId": "CreateApplication",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwApplication"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwApplication"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwApplication"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwApplication"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwApplication"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwApplication"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwApplication"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Application"
+          ],
+          "operationId": "UpdateApplication",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwApplication"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwApplication"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwApplication"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwApplication"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/application/{applicationId}": {
+        "delete": {
+          "tags": [
+            "Application"
+          ],
+          "operationId": "DeleteApplicationById",
+          "parameters": [
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/groups/search": {
+        "get": {
+          "tags": [
+            "Group"
+          ],
+          "operationId": "SearchGroups",
+          "parameters": [
+            {
+              "name": "q",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwGroup"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwGroup"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwGroup"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/group/{groupId}/applications": {
+        "get": {
+          "tags": [
+            "Group"
+          ],
+          "operationId": "GetApplicationsByGroupId",
+          "parameters": [
+            {
+              "name": "groupId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwApplication"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwApplication"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwApplication"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/group/{groupId}/permissions/{applicationId}": {
+        "get": {
+          "tags": [
+            "Group"
+          ],
+          "operationId": "GetPermissionsByGroupAndApplication",
+          "parameters": [
+            {
+              "name": "groupId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/group/{groupId}/permissions/{applicationKey}": {
+        "get": {
+          "tags": [
+            "Group"
+          ],
+          "operationId": "GetPermissionsByGroupIdAndApplicationKey",
+          "parameters": [
+            {
+              "name": "groupId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "applicationKey",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/group/{groupId}": {
+        "get": {
+          "tags": [
+            "Group"
+          ],
+          "operationId": "GetGroupById",
+          "parameters": [
+            {
+              "name": "groupId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwGroup"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwGroup"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwGroup"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/group/{groupId}/permissionTree": {
+        "get": {
+          "tags": [
+            "Group"
+          ],
+          "operationId": "GetGroupPermissionTreeByGroupId",
+          "parameters": [
+            {
+              "name": "groupId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionReportItem"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionReportItem"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionReportItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/permissions/{applicationId}": {
+        "get": {
+          "tags": [
+            "Permission"
+          ],
+          "operationId": "GetPermissionsByApplicationId",
+          "parameters": [
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "includeDisabled",
+              "in": "query",
+              "schema": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/permission/{permissionId}/{applicationId}": {
+        "get": {
+          "tags": [
+            "Permission"
+          ],
+          "operationId": "GetPermissionById",
+          "parameters": [
+            {
+              "name": "permissionId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermission"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermission"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermission"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Permission"
+          ],
+          "operationId": "DeletePermissionById",
+          "parameters": [
+            {
+              "name": "permissionId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/permission": {
+        "post": {
+          "tags": [
+            "Permission"
+          ],
+          "operationId": "CreatePermission",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermission"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermission"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermission"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermission"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermission"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermission"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermission"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Permission"
+          ],
+          "operationId": "UpdatePermission",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermission"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermission"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermission"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermission"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/permission/{permissionId}/{applicationId}/enable": {
+        "patch": {
+          "tags": [
+            "Permission"
+          ],
+          "operationId": "EnablePermission",
+          "parameters": [
+            {
+              "name": "permissionId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/permission/{permissionId}/{applicationId}/disable": {
+        "patch": {
+          "tags": [
+            "Permission"
+          ],
+          "operationId": "DisablePermissionById",
+          "parameters": [
+            {
+              "name": "permissionId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/permission-sets/{applicationId}": {
+        "get": {
+          "tags": [
+            "PermissionSet"
+          ],
+          "operationId": "GetPermissionSetsByApplicationId",
+          "parameters": [
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermissionSet"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermissionSet"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermissionSet"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/permission-set/{permissionSetId}": {
+        "get": {
+          "tags": [
+            "PermissionSet"
+          ],
+          "operationId": "GetPermissionSetById",
+          "parameters": [
+            {
+              "name": "permissionSetId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionSet"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionSet"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionSet"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "PermissionSet"
+          ],
+          "operationId": "DeletePermissionSetById",
+          "parameters": [
+            {
+              "name": "permissionSetId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/permission-set/{permissionSetId}/permissions": {
+        "get": {
+          "tags": [
+            "PermissionSet"
+          ],
+          "operationId": "GetPermissionsByPermissionSetId",
+          "parameters": [
+            {
+              "name": "permissionSetId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedPermission"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedPermission"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedPermission"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/permission-set": {
+        "post": {
+          "tags": [
+            "PermissionSet"
+          ],
+          "operationId": "CreatePermissionSet",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSet"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSet"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSet"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSet"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionSet"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionSet"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionSet"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "PermissionSet"
+          ],
+          "operationId": "UpdatePermissionSet",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSet"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSet"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSet"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSet"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/permission-set/{permissionSetId}/enable": {
+        "patch": {
+          "tags": [
+            "PermissionSet"
+          ],
+          "operationId": "EnablePermissionSetById",
+          "parameters": [
+            {
+              "name": "permissionSetId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/permission-set/{permissionSetId}/disable": {
+        "patch": {
+          "tags": [
+            "PermissionSet"
+          ],
+          "operationId": "DisablePermissionSetById",
+          "parameters": [
+            {
+              "name": "permissionSetId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/permission-set/permission": {
+        "post": {
+          "tags": [
+            "PermissionSet"
+          ],
+          "operationId": "AddPermissionToPermissionSet",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSetPermission"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSetPermission"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSetPermission"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwPermissionSetPermission"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/permission-set/{permissionSetId}/permission/{permissionId}": {
+        "delete": {
+          "tags": [
+            "PermissionSet"
+          ],
+          "operationId": "RemovePermissionFromPermissionSet",
+          "parameters": [
+            {
+              "name": "permissionSetId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "permissionId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/roles/{applicationId}": {
+        "get": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "GetRolesByApplicationId",
+          "parameters": [
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwRole"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwRole"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwRole"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}": {
+        "get": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "GetRoleById",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwRole"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwRole"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwRole"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "DeleteRoleById",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}/users": {
+        "get": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "GetUsersByRoleId",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedUser"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedUser"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedUser"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}/groups": {
+        "get": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "GetGroupsByRoleId",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedGroup"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedGroup"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedGroup"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}/permissions": {
+        "get": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "GetPermissionsByRoleId",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedPermission"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedPermission"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedPermission"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}/permission-sets": {
+        "get": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "GetPermissionSetsByRoleId",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedPermissionSet"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedPermissionSet"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwAssignedPermissionSet"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/role": {
+        "post": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "CreateRole",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRole"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRole"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRole"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRole"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwRole"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwRole"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwRole"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "UpdateRole",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRole"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRole"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRole"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRole"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}/enable": {
+        "patch": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "EnableRoleById",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}/disable": {
+        "patch": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "DisableRoleById",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/user": {
+        "post": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "AddUserToRole",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRoleUser"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRoleUser"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRoleUser"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRoleUser"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}/user/{userId}": {
+        "delete": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "RemoveUserFromRole",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/group": {
+        "post": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "AddGroupToRole",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRoleGroup"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRoleGroup"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRoleGroup"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRoleGroup"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}/group/{groupId}": {
+        "delete": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "RemoveGroupFromRole",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "groupId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/permission": {
+        "post": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "AddPermissionToRole",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRolePermission"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRolePermission"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRolePermission"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRolePermission"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}/permission/{permissionId}": {
+        "delete": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "RemovePermissionFromRole",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "permissionId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/permission-set": {
+        "post": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "AddPermissionSetToRole",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRolePermissionSet"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRolePermissionSet"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRolePermissionSet"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RwRolePermissionSet"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/role/{roleId}/permission-set/{permissionSetId}": {
+        "delete": {
+          "tags": [
+            "Role"
+          ],
+          "operationId": "RemovePermissionSetFromRole",
+          "parameters": [
+            {
+              "name": "roleId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "permissionSetId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/tenants": {
+        "get": {
+          "tags": [
+            "Tenant"
+          ],
+          "operationId": "GetTenants",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Tenant"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Tenant"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Tenant"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Tenant"
+          ],
+          "operationId": "CreateTenant",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tenant"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tenant"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tenant"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tenant"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Tenant"
+          ],
+          "operationId": "UpdateTenant",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tenant"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tenant"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tenant"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tenant"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/tenants/shortname/{shortName}": {
+        "get": {
+          "tags": [
+            "Tenant"
+          ],
+          "operationId": "GetTenantByShortName",
+          "parameters": [
+            {
+              "name": "shortName",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/tenants/{id}": {
+        "get": {
+          "tags": [
+            "Tenant"
+          ],
+          "operationId": "GetTenant",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Tenant"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Tenant"
+          ],
+          "operationId": "DeleteTenant",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/users/search": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "SearchUsers",
+          "parameters": [
+            {
+              "name": "q",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwUser"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwUser"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwUser"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/{userId}/applications": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetApplicationsByUserId",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwApplication"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwApplication"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwApplication"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/{userId}/permissions/{applicationId}": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetPermissionsByUserAndApplication",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "applicationId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/{userId}/permissions/{applicationKey}": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetPermissionsByUserAndApplicationKey",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "applicationKey",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwPermission"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/{userId}/groups": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetGroupsByUserId",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwGroup"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwGroup"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwGroup"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/email/groups": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetUserGroupsByEmail",
+          "parameters": [
+            {
+              "name": "email",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwGroup"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwGroup"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwGroup"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetUsersByUserIds",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwUser"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwUser"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwUser"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/{userId}": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetUserById",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwUser"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwUser"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwUser"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/{userId}/permissionTree": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetUserPermissionTreeByUserId",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionReportItem"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionReportItem"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwPermissionReportItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users/loadRunner": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetLoadRunnerUsersByUserIds",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwLoadRunnerUser"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwLoadRunnerUser"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwLoadRunnerUser"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/loadRunner/{userId}": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetLoadRunnerUserByUserId",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwLoadRunnerAdUser"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwLoadRunnerAdUser"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RwLoadRunnerAdUser"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/loadRunner/{adUserId}/id": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetLoadRunnderIdByAdUserId",
+          "parameters": [
+            {
+              "name": "adUserId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/user/loadRunner/{email}/id": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "GetLoadRunnderIdByEmail",
+          "parameters": [
+            {
+              "name": "email",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users/loadRunner/search": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "operationId": "SearchLoadRunnerUsers",
+          "parameters": [
+            {
+              "name": "searchTerm",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "includeGroups",
+              "in": "query",
+              "schema": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            {
+              "name": "includeRetired",
+              "in": "query",
+              "schema": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwLoadRunnerUser"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwLoadRunnerUser"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RwLoadRunnerUser"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users/tenants": {
+        "get": {
+          "tags": [
+            "UserTenant"
+          ],
+          "operationId": "GetUserTenants",
+          "parameters": [
+            {
+              "name": "authorization",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserTenant"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserTenant"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserTenant"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "UserTenant"
+          ],
+          "operationId": "CreateUserTenant",
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTenant"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTenant"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTenant"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTenant"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserTenant"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserTenant"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserTenant"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users/adUsers/{adUserId}/tenants": {
+        "get": {
+          "tags": [
+            "UserTenant"
+          ],
+          "operationId": "GetUserTenantsByADUserId",
+          "parameters": [
+            {
+              "name": "adUserId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserTenant"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserTenant"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserTenant"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users/adUsers/{adUserId}/tenants/{tenantId}/enable": {
+        "put": {
+          "tags": [
+            "UserTenant"
+          ],
+          "operationId": "EnableUserTenant",
+          "parameters": [
+            {
+              "name": "adUserId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "tenantId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserTenant"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserTenant"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserTenant"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users/adUsers/{adUserId}/tenants/{tenantId}": {
+        "delete": {
+          "tags": [
+            "UserTenant"
+          ],
+          "operationId": "DisableUserTenant",
+          "parameters": [
+            {
+              "name": "adUserId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "tenantId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "authorization",
+              "in": "header",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserTenant"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserTenant"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserTenant"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "IHashFunction": {
+          "type": "object",
+          "properties": {
+            "HashSizeInBits": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwApplication": {
+          "required": [
+            "Name"
+          ],
+          "type": "object",
+          "properties": {
+            "ApplicationId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "ApplicationKey": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "Name": {
+              "maxLength": 100,
+              "type": "string"
+            },
+            "ApiUrl": {
+              "maxLength": 255,
+              "type": "string",
+              "nullable": true
+            },
+            "UiUrl": {
+              "maxLength": 255,
+              "type": "string",
+              "nullable": true
+            },
+            "RequiresApplicationAccess": {
+              "type": "boolean",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwAssignedGroup": {
+          "type": "object",
+          "properties": {
+            "GroupId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "Name": {
+              "type": "string",
+              "nullable": true
+            },
+            "Description": {
+              "type": "string",
+              "nullable": true
+            },
+            "CreatedDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "StartDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "EndDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwAssignedPermission": {
+          "type": "object",
+          "properties": {
+            "PermissionId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "ApplicationId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "Name": {
+              "type": "string",
+              "nullable": true
+            },
+            "Description": {
+              "type": "string",
+              "nullable": true
+            },
+            "Category": {
+              "type": "string",
+              "nullable": true
+            },
+            "IsUiPermission": {
+              "type": "boolean"
+            },
+            "IsEnabled": {
+              "type": "boolean"
+            },
+            "IsDeny": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwAssignedPermissionSet": {
+          "type": "object",
+          "properties": {
+            "PermissionSetId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "ApplicationId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "Name": {
+              "type": "string",
+              "nullable": true
+            },
+            "Description": {
+              "type": "string",
+              "nullable": true
+            },
+            "IsEnabled": {
+              "type": "boolean"
+            },
+            "IsDeny": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwAssignedUser": {
+          "type": "object",
+          "properties": {
+            "UserId": {
+              "type": "string",
+              "nullable": true
+            },
+            "RoleId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "FirstName": {
+              "type": "string",
+              "nullable": true
+            },
+            "LastName": {
+              "type": "string",
+              "nullable": true
+            },
+            "Email": {
+              "type": "string",
+              "nullable": true
+            },
+            "JobTitle": {
+              "type": "string",
+              "nullable": true
+            },
+            "StartDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "EndDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwGroup": {
+          "type": "object",
+          "properties": {
+            "GroupId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "Name": {
+              "type": "string",
+              "nullable": true
+            },
+            "Description": {
+              "type": "string",
+              "nullable": true
+            },
+            "CreatedDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwLoadRunnerAdUser": {
+          "type": "object",
+          "properties": {
+            "UserId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "DisplayName": {
+              "type": "string",
+              "nullable": true
+            },
+            "ContactId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "Email": {
+              "type": "string",
+              "nullable": true
+            },
+            "UserType": {
+              "$ref": "#/components/schemas/RwUserType"
+            },
+            "IsEnabled": {
+              "type": "boolean"
+            },
+            "AdUserId": {
+              "type": "string",
+              "nullable": true
+            },
+            "FirstName": {
+              "type": "string",
+              "nullable": true
+            },
+            "LastName": {
+              "type": "string",
+              "nullable": true
+            },
+            "JobTitle": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwLoadRunnerUser": {
+          "type": "object",
+          "properties": {
+            "UserId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "DisplayName": {
+              "type": "string",
+              "nullable": true
+            },
+            "ContactId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "Email": {
+              "type": "string",
+              "nullable": true
+            },
+            "UserType": {
+              "$ref": "#/components/schemas/RwUserType"
+            },
+            "IsEnabled": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwPermission": {
+          "required": [
+            "ApplicationId",
+            "Name"
+          ],
+          "type": "object",
+          "properties": {
+            "PermissionId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "ApplicationId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "Name": {
+              "maxLength": 100,
+              "type": "string"
+            },
+            "Description": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "Category": {
+              "maxLength": 100,
+              "type": "string",
+              "nullable": true
+            },
+            "IsUiPermission": {
+              "type": "boolean"
+            },
+            "IsEnabled": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwPermissionReportItem": {
+          "type": "object",
+          "properties": {
+            "AppKey": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "EntityType": {
+              "type": "string",
+              "nullable": true
+            },
+            "EntityId": {
+              "type": "string",
+              "nullable": true
+            },
+            "Title": {
+              "type": "string",
+              "nullable": true
+            },
+            "IsDeny": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "IsUiPermission": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "Key": {
+              "type": "string",
+              "nullable": true,
+              "readOnly": true
+            },
+            "TypeName": {
+              "type": "string",
+              "nullable": true
+            },
+            "IsSerializable": {
+              "type": "boolean"
+            },
+            "Children": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/StringRwPermissionReportItemITreeNode"
+              },
+              "nullable": true
+            },
+            "DepthFromRoot": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            },
+            "HasChildren": {
+              "type": "boolean",
+              "readOnly": true
+            },
+            "Id": {
+              "type": "string",
+              "nullable": true
+            },
+            "HashProvider": {
+              "$ref": "#/components/schemas/IHashFunction"
+            },
+            "PathId": {
+              "type": "string",
+              "nullable": true
+            },
+            "IndentCharacter": {
+              "type": "string"
+            },
+            "IndentString": {
+              "type": "string",
+              "nullable": true,
+              "readOnly": true
+            },
+            "Parent": {
+              "$ref": "#/components/schemas/StringRwPermissionReportItemITreeNode"
+            },
+            "ParentId": {
+              "type": "string",
+              "nullable": true
+            },
+            "Root": {
+              "$ref": "#/components/schemas/StringRwPermissionReportItemITreeNode"
+            },
+            "RootId": {
+              "type": "string",
+              "nullable": true
+            },
+            "Siblings": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/StringRwPermissionReportItemITreeNode"
+              },
+              "nullable": true,
+              "readOnly": true
+            },
+            "SortableTreePath": {
+              "type": "string",
+              "nullable": true,
+              "readOnly": true
+            },
+            "TreeNodeId": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwPermissionSet": {
+          "required": [
+            "Name"
+          ],
+          "type": "object",
+          "properties": {
+            "PermissionSetId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "ApplicationId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "Name": {
+              "maxLength": 100,
+              "type": "string"
+            },
+            "Description": {
+              "maxLength": 1000,
+              "type": "string",
+              "nullable": true
+            },
+            "IsEnabled": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwPermissionSetPermission": {
+          "type": "object",
+          "properties": {
+            "PermissionSetId": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "PermissionId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "ApplicationId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "IsDeny": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwRole": {
+          "required": [
+            "ApplicationId",
+            "Name"
+          ],
+          "type": "object",
+          "properties": {
+            "RoleId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "Name": {
+              "maxLength": 100,
+              "type": "string"
+            },
+            "StartDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "EndDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "IsEnabled": {
+              "type": "boolean"
+            },
+            "ApplicationId": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwRoleGroup": {
+          "type": "object",
+          "properties": {
+            "RoleId": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "GroupId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "StartDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "EndDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "GroupName": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwRolePermission": {
+          "required": [
+            "PermissionId",
+            "RoleId"
+          ],
+          "type": "object",
+          "properties": {
+            "RoleId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "PermissionId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "ApplicationId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "IsDeny": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwRolePermissionSet": {
+          "type": "object",
+          "properties": {
+            "RoleId": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "PermissionSetId": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            },
+            "IsDeny": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwRoleUser": {
+          "required": [
+            "RoleId",
+            "UserId"
+          ],
+          "type": "object",
+          "properties": {
+            "RoleId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "UserId": {
+              "type": "string"
+            },
+            "StartDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "EndDate": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwUser": {
+          "type": "object",
+          "properties": {
+            "UserId": {
+              "type": "string",
+              "nullable": true
+            },
+            "FirstName": {
+              "type": "string",
+              "nullable": true
+            },
+            "LastName": {
+              "type": "string",
+              "nullable": true
+            },
+            "Email": {
+              "type": "string",
+              "nullable": true
+            },
+            "JobTitle": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RwUserType": {
+          "enum": [
+            "Employee",
+            "Group",
+            "Customer",
+            "Carrier",
+            "Facility",
+            "Admin",
+            "FreightServices"
+          ],
+          "type": "string"
+        },
+        "StringRwPermissionReportItemITreeNode": {
+          "type": "object",
+          "properties": {
+            "TypeName": {
+              "type": "string",
+              "nullable": true
+            },
+            "IsSerializable": {
+              "type": "boolean"
+            },
+            "Children": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/StringRwPermissionReportItemITreeNode"
+              },
+              "nullable": true,
+              "readOnly": true
+            },
+            "DepthFromRoot": {
+              "type": "integer",
+              "format": "int32",
+              "readOnly": true
+            },
+            "HasChildren": {
+              "type": "boolean",
+              "readOnly": true
+            },
+            "Id": {
+              "type": "string",
+              "nullable": true
+            },
+            "HashProvider": {
+              "$ref": "#/components/schemas/IHashFunction"
+            },
+            "PathId": {
+              "type": "string",
+              "nullable": true
+            },
+            "IndentCharacter": {
+              "type": "string"
+            },
+            "IndentString": {
+              "type": "string",
+              "nullable": true,
+              "readOnly": true
+            },
+            "Parent": {
+              "$ref": "#/components/schemas/StringRwPermissionReportItemITreeNode"
+            },
+            "ParentId": {
+              "type": "string",
+              "nullable": true
+            },
+            "Root": {
+              "$ref": "#/components/schemas/StringRwPermissionReportItemITreeNode"
+            },
+            "RootId": {
+              "type": "string",
+              "nullable": true
+            },
+            "Siblings": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/StringRwPermissionReportItemITreeNode"
+              },
+              "nullable": true,
+              "readOnly": true
+            },
+            "SortableTreePath": {
+              "type": "string",
+              "nullable": true,
+              "readOnly": true
+            },
+            "TreeNodeId": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "additionalProperties": false
+        },
+        "Tenant": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "Name": {
+              "type": "string",
+              "nullable": true
+            },
+            "ShortName": {
+              "type": "string",
+              "nullable": true
+            },
+            "SJTenantId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "SJAPIKey": {
+              "type": "string",
+              "nullable": true
+            },
+            "SJPrintNodeAccountId": {
+              "type": "string",
+              "nullable": true
+            },
+            "Notes": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserTenant": {
+          "type": "object",
+          "properties": {
+            "ADUserId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "TenantId": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "securitySchemes": {
+        "Authentication": {
+          "type": "http",
+          "description": "Bearer authentication token. Example: \"bearer {token}\"",
+          "scheme": "Bearer"
+        },
+        "Authorization": {
+          "type": "apiKey",
+          "description": "Encrypted permissions",
+          "name": "RW_EFFECTIVE_PERMISSIONS",
+          "in": "header"
+        }
+      }
+    }
+  }
